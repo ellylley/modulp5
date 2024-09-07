@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>View Profile</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+    }
+    .profile-info {
+        margin-bottom: 20px;
+    }
+    .profile-info label {
+        font-weight: bold;
+    }
+    .profile-img {
+        display: block;
+        margin: 0 auto 20px;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+</style>
+</head> 
+<body>
+<form id="sellerForm" class="" novalidate action="<?= base_url('home/aksieprofile/')?>" method="POST" enctype="multipart/form-data">
+<div class="container">
+    <h1>Profile Information</h1>
+    <img src="<?= base_url('images/'.$user->foto)?>" class="profile-img" alt="Profile Picture" >
+    <div class="profile-info">
+        <label for="foto">Foto Profile:</label>
+        <input type="file" id="foto" class="form-control" name="foto">
+        <input type="hidden" name="old_foto" value="<?= $user->foto ?>">
+    </div>
+    <div class="profile-info">
+        <label for="name">Nama:</label>
+       <input name="nama" type="text" class="form-control" id="nama" value="<?= $user->nama_user?>">
+    </div>
+    
+    
+        <input name="id" type="hidden" class="form-control" id="nama" value="<?= $user->id_user?>">
+   
+    
+<td>
+
+    <button class="btn btn-warning btn-sm ">Save Edit</button>
+    <a href="<?= base_url('home/changepassword/'.$user->id_user)?>" class="btn btn-secondary btn-sm ">Change Password</a>
+</td>
+</div>
+</form>
+</body>
+</html>
